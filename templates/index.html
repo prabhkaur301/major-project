@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Fake Content Detector</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: rgb(255, 255, 255);
+        font-family: "Montserrat", sans-serif;
+      }
+      #header-bg {
+        background-image: url(../static/bg.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .grid-item-custom {
+        background-image: url(../static/bg.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      h1,
+      h2 {
+        font-family: "Kdam Thmor Pro", sans-serif;
+      }
+
+</style>
+  </head>
+  <body>
+    <nav
+      class="navbar px-6 py-2 flex flex-row justify-between items-center"
+      id="navbar"
+    >
+      <img src="../static/logo.png" alt="Logo" class="w-28 h-28" />
+      <ul class="flex flex-row justify-between items-center">
+        <li>
+          <a href="/" class="mr-8 text-[#54264D] font-bold text-l">HOME</a>
+        </li>
+        <li>
+          <a href="/about_us" class="mr-8 text-[#54264D] font-bold text-l"
+            >ABOUT US</a
+          >
+        </li>
+        <li>
+          <a href="/working" class="mr-8 text-[#54264D] font-bold text-l"
+            >HOW IT WORKS</a
+          >
+        </li>
+        <li>
+          <a href="/references" class="mr-8 text-[#54264D] font-bold text-l"
+            >REFERENCES</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <header>
+      <div
+        class="w-full rounded-xl h-[320px] flex flex-col items-center py-6"
+        id="header-bg"
+      >
+        <h1 class="font-bold text-6xl text-white mt-10 mb-6" id="heading-1">
+          Fake Content Detector
+        </h1>
+        <p class="text-white font-semibold text-lg">
+          Verify variety of content being shared on internet - textual posts,
+          news , url using our website.
+        </p>
+      </div>
+    </header>
+
+    <section class="flex flex-col w-full justify-center py-16 px-8">
+      <h2 class="font-bold text-5xl text-[#803374] text-center mb-10">
+        Features of this Project
+      </h2>
+
+      <!--------------------------------- ~grid ------------------------------------>
+      <div class="grid-custom flex flex-row flex-wrap gap-8 my-8 mx-10">
+
+        <!-- ------------------------------- &grid item--------------------- -->
+        <div
+          class="grid-item-custom flex flex-col items-center flex-1 h-90 rounded-lg px-4 hover:drop-shadow-xl"
+        >
+          <img
+            src="../static/fake_news.svg"
+            alt="fake news illustration"
+            class="w-40 h-40"
+          />
+          <h3 class="text-white font-bold text-lg text-center">
+            Fake News Detector
+          </h3>
+          <p class="text-base text-white text-center">
+            The fake news on internet is wide spreading & is a matter of serious
+            concern due to its ability to cause a lot of social and national
+            damage with destructive impacts. This application makes use of
+            Machine Learning and NLP to detect whether news is Fake or Real
+          </p>
+
+          <button
+            class="bg-[#54264D] text-white px-4 py-2 rounded-3xl my-4 hover:bg-[#803374] hover:border-white hover:border-2 active:bg-[#803374] focus:outline-none focus:ring focus:ring-white"
+            onclick="window.location.href ='/news'"
+          >
+            Verify Your Content
+          </button>
+        </div>
+        <!-- ----------------------------------grid item ended -------------------------->
+
+         <!-- ------------------------------- &grid item -2 --------------------- -->
+         <div
+         class="grid-item-custom flex flex-col items-center flex-1 h-90 rounded-lg px-4 hover:drop-shadow-xl"
+       >
+         <img
+           src="../static/malicious_url.png"
+           alt="fake news illustration"
+           class="w-40 h-40"
+         />
+         <h3 class="text-white font-bold text-lg text-center">
+           Malicious URL Detector
+         </h3>
+         <p class="text-base text-white text-center">
+          Malicious URLs host unsolicited content (spam, phishing, drive-by downloads, etc.) and lure unsuspecting users to become victims of scams.
+          This feature is based of Machine Learning Classifier and predict whether the URL is malicious or safe.
+         </p>
+
+         <button
+           class="bg-[#54264D] text-white px-4 py-2 rounded-3xl my-4 hover:bg-[#803374] hover:border-white hover:border-2 active:bg-[#803374] focus:outline-none focus:ring focus:ring-white"
+           onclick="window.location.href ='/malicious'"
+         >
+           Check URLs
+         </button>
+       </div>
+       <!-- ----------------------------------grid item ended -------------------------->
+
+
+        <!-- ------------------------------- &grid item -3--------------------- -->
+        <div
+          class="grid-item-custom flex flex-col items-center flex-1 h-90 rounded-lg px-4 hover:drop-shadow-xl"
+        >
+          <img
+            src="../static/sentiment_analysis.png"
+            alt="fake news illustration"
+            class="w-40 h-40"
+          />
+          <h3 class="text-white font-bold text-lg text-center">
+            Twitter Sentiment Analysis
+          </h3>
+          <p class="text-base text-white text-center">
+            Twitter sentiment analysis identifies negative, positive, or neutral emotions within the text of a tweet using natural language processing (NLP) and machine learning. 
+            Helpful for companies to get better understanding of the social sentiment of its brand, product, or service.
+          </p>
+
+          <button
+            class="bg-[#54264D] text-white px-4 py-2 rounded-3xl my-4 hover:bg-[#803374] hover:border-white hover:border-2 active:bg-[#803374] focus:outline-none focus:ring focus:ring-white"
+            onclick="window.location.href ='/predict.html'"
+          >
+            Perform Sentiment Analysis
+          </button>
+        </div>
+        <!-- ----------------------------------grid item ended -------------------------->
+
+
+      </div>
+    </section>
+
+    <section class="flex flex-col w-full justify-center py-16 px-10">
+      <h2 class="font-bold text-5xl text-[#803374] text-center">Objectives of This Project</h2>
+      <div class="flex flex-row items-center justify-around">
+        
+            <ul class="w-1/2">
+              <li class="my-4 flex flex-row gap-2 items-center word-break">  <img src="../static/1.svg" alt="bullet point" class="w-20 h-20"> To verify variety of content being shared on internet - textual posts, news, URLs using Machine learning and NLP techniques</li>
+              <li class="my-4 flex flex-row gap-2 items-center"><img src="../static/2.svg" alt="bullet point" class="w-20 h-20"> To provide sentiment analysis of the textual contents</li>
+              <li class="my-4 flex flex-row gap-2 items-center"><img src="../static/3.svg" alt="bullet point" class="w-20 h-20"> To detect malicious url being shared on internet and prevent user to visit phishing sites</li>
+            </ul>
+
+        <img src="../static/objectives.svg" alt="Objectives of Project" class="w-72">
+      </div>
+
+
+    </section>
+  </body>
+</html>

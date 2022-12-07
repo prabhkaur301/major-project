@@ -1,0 +1,11 @@
+matplotlib
+nltk==3.7
+numpy
+pandas
+seaborn
+# session_info==1.0.0
+sklearn 
+scikit-learn
+spacy==3.4.3
+flask
+# wordcloud==1.8.2.2

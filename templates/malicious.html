@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgb(255, 255, 255);
+            font-family: "Montserrat", sans-serif;
+      }
+      h2{
+        font-family: "Kdam Thmor Pro", sans-serif;
+        color: rgb(54, 5, 70);
+      }
+    </style>
+    <title>Malicious URL Detector</title>
+  </head>
+  <body class="bg-slate-300">
+    <nav
+      class="navbar px-6 py-2 flex flex-row justify-between items-center"
+      id="navbar"
+    >
+      <img src="../static/logo.png" alt="Logo" class="w-28 h-28" />
+      <ul class="flex flex-row justify-between items-center">
+        <li>
+          <a href="/" class="mr-8 text-[#54264D] font-bold text-l">HOME</a>
+        </li>
+        <li>
+          <a href="/about_us" class="mr-8 text-[#54264D] font-bold text-l"
+            >ABOUT US</a
+          >
+        </li>
+        <li>
+          <a href="/working" class="mr-8 text-[#54264D] font-bold text-l"
+            >HOW IT WORKS</a
+          >
+        </li>
+        <li>
+          <a href="/references" class="mr-8 text-[#54264D] font-bold text-l"
+            >REFERENCES</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <header class="header w-full h-fit flex flex-row justify-around py-12 px-12">
+        <div class="flex-2">
+            <h2 class="font-bold text-5xl tracking-wider my-4">MALICIOUS URL DETECTOR</h2>
+            <h5 class="font-medium text-lg my-2 text-[#360546]">Malicious URLs or malicious website is a very serious threat to cybersecurity</h5>
+            <p class="text-base">Malicious URLs host unsolicited content (spam, phishing, drive-by downloads, etc.) and lure unsuspecting users to become victims of scams (monetary loss, theft of private information, and malware installation), and cause losses of billions of dollars every year. We have trained a machine learning-based model using Feature Engineering and NLP to identify malicious urls so that we can stop them in advance before infecting computer system or spreading through internet.</p>
+        </div>
+        <img src="../static/url.svg" alt="Malicious URl" class="h-72">
+    </header>
+    <section class="flex flex-col items-center my-12 mx-10">
+        <h2 class="font-bold text-2xl">Enter your URL here</h2>
+
+        <div
+        class="flex flex-row rounded-lg bg-gray-200 w-[90%] h-72 drop-shadow-lg mt-6"
+      >
+        <div class="left flex flex-col flex-1 w-1/2 justify-center py-6 px-4">
+          <p class="font-medium text-[#54264D] text-lg">Enter your text here</p>
+          <form action="/malicious_output" method="post"  class="flex flex-col items-start my-2">
+            <input
+              type="text"
+              name="input_string"
+              class="h-16 px-5 w-full rounded-lg outline-none border-none text-left shadow-sm focus:outline-none focus:border-purple-500 focus:ring-purple-500 focus:ring-1 sm:text-sm"
+            >
+            <button
+              type="submit"
+              class="bg-[#54264D] text-white px-4 py-2 rounded-3xl my-4 hover:bg-[#803374] hover:border-white hover:border-2 active:bg-[#803374] focus:outline-none focus:ring focus:ring-white"
+            >
+              Verify URL
+            </button>
+          </form>
+        </div>
+
+        <div class="right flex-1 py-6 px-4 flex flex-col">
+          <p class="font-medium text-[#54264D] text-lg">Result👇</p>
+          <h2>{{prediction_text}}</h2>
+        </div>
+      </div>
+
+    </section>
+  </body>
+</html>
