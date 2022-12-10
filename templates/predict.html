@@ -60,9 +60,10 @@
       >
         <div class="left flex flex-col flex-1 w-1/2 py-6 px-4">
           <p class="font-medium text-[#54264D] text-lg">Enter your text here</p>
-          <form action="./predict.html" method="post" class="flex flex-col items-start my-2">
+          <form action="" method="post" class="flex flex-col items-start my-2">
             <textarea
               type="text"
+              name="input_string"
               class="h-48 w-full rounded-lg outline-none border-none text-left shadow-sm focus:outline-none focus:border-purple-500 focus:ring-purple-500 focus:ring-1 sm:text-sm"
             ></textarea>
             <button
@@ -76,6 +77,13 @@
 
         <div class="right flex-1 py-6 px-4 flex flex-col">
           <p class="font-medium text-[#54264D] text-lg">Result👇</p>
+          {% if prediction_text==0 %}
+          <h2 class="text-xl font-bold text-red-500  my-4 tracking-wider">Fake News!⚠</h2>
+          {% elif prediction_text==1 %}
+          <h2 class="text-xl font-bold text-green-500 my-4 tracking-wider">Real News ✔</h2>
+          
+          {% endif%}
+
         </div>
       </div>
     </section>
