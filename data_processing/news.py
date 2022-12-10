@@ -2,6 +2,7 @@ import string
 import spacy
 
 nlp = spacy.load("en_core_web_lg")
+
 ######################## ~news input processing ############################################
 def punctuation_removal(text):
     all_list = [char for char in text if char not in string.punctuation]
