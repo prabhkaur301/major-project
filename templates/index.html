@@ -70,7 +70,7 @@
         id="header-bg"
       >
         <h1 class="font-bold text-6xl text-white mt-10 mb-6" id="heading-1">
-          Fake Content Detector
+          Social Media Content Verification
         </h1>
         <p class="text-white font-semibold text-lg">
           Verify variety of content being shared on internet - textual posts,
@@ -87,17 +87,44 @@
       <!--------------------------------- ~grid ------------------------------------>
       <div class="grid-custom flex flex-row flex-wrap gap-8 my-8 mx-10">
 
+        <!-- ------------------------------- &grid item -1--------------------- -->
+        <div
+          class="grid-item-custom flex flex-col items-center flex-1 h-90 rounded-lg px-4 hover:drop-shadow-xl"
+        >
+          <img
+            src="../static/sentiment_analysis.png"
+            alt="fake news illustration"
+            class="w-40 h-40"
+          />
+          <h3 class="text-white font-bold text-lg text-center">
+            Twitter Sentiment Analysis
+          </h3>
+          <p class="text-base text-white text-center">
+            Twitter sentiment analysis identifies negative, positive, or neutral emotions within the text of a tweet using natural language processing (NLP) and machine learning. 
+            Helpful for companies to get better understanding of the social sentiment of its brand, product, or service.
+          </p>
+
+          <button
+            class="bg-[#54264D] text-white px-4 py-2 rounded-3xl my-4 hover:bg-[#803374] hover:border-white hover:border-2 active:bg-[#803374] focus:outline-none focus:ring focus:ring-white"
+            onclick="window.location.href ='/sentiment-analysis'"
+          >
+            Perform Sentiment Analysis
+          </button>
+        </div>
+        <!-- ----------------------------------grid item ended -------------------------->
+
         <!-- ------------------------------- &grid item--------------------- -->
         <div
           class="grid-item-custom flex flex-col items-center flex-1 h-90 rounded-lg px-4 hover:drop-shadow-xl"
         >
           <img
+          
             src="../static/fake_news.svg"
             alt="fake news illustration"
             class="w-40 h-40"
           />
           <h3 class="text-white font-bold text-lg text-center">
-            Fake News Detector
+            Fake News Detection
           </h3>
           <p class="text-base text-white text-center">
             The fake news on internet is wide spreading & is a matter of serious
@@ -141,32 +168,6 @@
        </div>
        <!-- ----------------------------------grid item ended -------------------------->
 
-
-        <!-- ------------------------------- &grid item -3--------------------- -->
-        <div
-          class="grid-item-custom flex flex-col items-center flex-1 h-90 rounded-lg px-4 hover:drop-shadow-xl"
-        >
-          <img
-            src="../static/sentiment_analysis.png"
-            alt="fake news illustration"
-            class="w-40 h-40"
-          />
-          <h3 class="text-white font-bold text-lg text-center">
-            Twitter Sentiment Analysis
-          </h3>
-          <p class="text-base text-white text-center">
-            Twitter sentiment analysis identifies negative, positive, or neutral emotions within the text of a tweet using natural language processing (NLP) and machine learning. 
-            Helpful for companies to get better understanding of the social sentiment of its brand, product, or service.
-          </p>
-
-          <button
-            class="bg-[#54264D] text-white px-4 py-2 rounded-3xl my-4 hover:bg-[#803374] hover:border-white hover:border-2 active:bg-[#803374] focus:outline-none focus:ring focus:ring-white"
-            onclick="window.location.href ='/sentiment-analysis'"
-          >
-            Perform Sentiment Analysis
-          </button>
-        </div>
-        <!-- ----------------------------------grid item ended -------------------------->
 
 
       </div>

@@ -1,91 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Montserrat:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Fake News Detector</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background-color: rgb(255, 255, 255);
-        font-family: "Montserrat", sans-serif;
-      }
-      .left {
-        border-right: 1px solid rgb(156 163 175);
-      }
-    </style>
-  </head>
-  <body>
-    <nav
-      class="navbar px-6 py-2 flex flex-row justify-between items-center"
-      id="navbar"
-    >
-      <img src="../static/logo.png" alt="Logo" class="w-28 h-28" />
-      <ul class="flex flex-row justify-between items-center">
-        <li>
-          <a href="/" class="mr-8 text-[#54264D] font-bold text-l">HOME</a>
-        </li>
-        <li>
-          <a href="/about_us" class="mr-8 text-[#54264D] font-bold text-l"
-            >ABOUT US</a
-          >
-        </li>
-        <li>
-          <a href="/working" class="mr-8 text-[#54264D] font-bold text-l"
-            >HOW IT WORKS</a
-          >
-        </li>
-        <li>
-          <a href="/references" class="mr-8 text-[#54264D] font-bold text-l"
-            >REFERENCES</a
-          >
-        </li>
-      </ul>
-    </nav>
 
-    <section class="flex flex-col items-center py-6 px-2">
-      <h2 class="font-semibold text-xl text-[#8F238B]">
-        Copy the content you want to verify and paste here 👇
-      </h2>
-      <div
-        class="flex flex-row rounded-lg bg-gray-200 w-4/5 h-80 drop-shadow-lg mt-6"
-      >
-        <div class="left flex flex-col flex-1 w-1/2 py-6 px-4">
-          <p class="font-medium text-[#54264D] text-lg">Enter your text here</p>
-          <form action="" method="post" class="flex flex-col items-start my-2">
-            <textarea
-              type="text"
-              name="input_string"
-              class="h-48 w-full rounded-lg outline-none border-none text-left shadow-sm focus:outline-none focus:border-purple-500 focus:ring-purple-500 focus:ring-1 sm:text-sm"
-            ></textarea>
-            <button
-              type="submit"
-              class="bg-[#54264D] text-white px-4 py-2 rounded-3xl my-4 hover:bg-[#803374] hover:border-white hover:border-2 active:bg-[#803374] focus:outline-none focus:ring focus:ring-white"
-            >
-              Verify Text
-            </button>
-          </form>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Montserrat:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <title>Fake News Detector</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: rgb(255, 255, 255);
+      font-family: "Montserrat", sans-serif;
+    }
 
-        <div class="right flex-1 py-6 px-4 flex flex-col">
-          <p class="font-medium text-[#54264D] text-lg">Result👇</p>
-          {% if prediction_text==0 %}
-          <h2 class="text-xl font-bold text-red-500  my-4 tracking-wider">Fake News!⚠</h2>
-          {% elif prediction_text==1 %}
-          <h2 class="text-xl font-bold text-green-500 my-4 tracking-wider">Real News ✔</h2>
-          
-          {% endif%}
+    .left {
+      border-right: 1px solid rgb(156 163 175);
+    }
+  </style>
+</head>
 
-        </div>
+<body>
+  <nav class="navbar px-6 py-2 flex flex-row justify-between items-center" id="navbar">
+    <img src="../static/logo.png" alt="Logo" class="w-28 h-28" />
+    <ul class="flex flex-row justify-between items-center">
+      <li>
+        <a href="/" class="mr-8 text-[#54264D] font-bold text-l">HOME</a>
+      </li>
+      <li>
+        <a href="/about_us" class="mr-8 text-[#54264D] font-bold text-l">ABOUT US</a>
+      </li>
+      <li>
+        <a href="/working" class="mr-8 text-[#54264D] font-bold text-l">HOW IT WORKS</a>
+      </li>
+      <li>
+        <a href="/references" class="mr-8 text-[#54264D] font-bold text-l">REFERENCES</a>
+      </li>
+    </ul>
+  </nav>
+
+  <section class="flex flex-col items-center py-4 px-2" id="main-section">
+    <h2 class="font-semibold text-xl text-[#8F238B] text-center">
+      Copy the content you want to verify and paste here 👇<br>OR
+    </h2>
+    <button type="button" id="fetch_data"
+      class="bg-[#54264D] text-white px-4 py-2 rounded-3xl my-4 hover:bg-[#803374] hover:border-white hover:border-2 active:bg-[#803374] focus:outline-none focus:ring focus:ring-white">Fetch
+      News
+    </button>
+
+    <div class="flex flex-row rounded-lg bg-gray-200 w-4/5 h-80 drop-shadow-lg mt-6">
+      <div class="left flex flex-col flex-1 w-1/2 py-4 px-4">
+        <p class="font-medium text-[#54264D] text-lg">Enter your text here</p>
+        <form action="" method="post" class="flex flex-col items-start my-2">
+          <textarea type="text" name="input_string" id="input_field"
+            class="h-48 w-full rounded-lg outline-none border-none text-left shadow-sm focus:outline-none focus:border-purple-500 focus:ring-purple-500 focus:ring-1 sm:text-sm"></textarea>
+          <button type="submit"
+            class="bg-[#54264D] text-white px-4 py-2 rounded-3xl my-4 hover:bg-[#803374] hover:border-white hover:border-2 active:bg-[#803374] focus:outline-none focus:ring focus:ring-white">
+            Verify Text
+          </button>
+        </form>
       </div>
-    </section>
-  </body>
+
+      <div class="right flex-1 py-6 px-4 flex flex-col">
+        <p class="font-medium text-[#54264D] text-lg">Result👇</p>
+        {% if prediction_text==0 %}
+        <div class="flex gap-4 items-center result" >
+          <img src="../static/alert.gif" alt="Fake News" class="w-40 h-40">
+          <h2 class="text-2xl font-bold text-red-500  my-4 tracking-wider">This news is Fake!</h2>
+          <!-- <p>Beware of such misleading news. Don't share them with anyone</p> -->
+        </div>
+        {% elif prediction_text==1 %}
+        <div class="flex gap-4 items-center result" >
+          <img src="../static/correct.gif" alt="Real News" class="w-40 h-40">
+          <h2 class="text-2xl font-bold text-green-500 my-4 tracking-wider">This news is Real✔</h2>
+        </div>
+
+        {% endif%}
+
+      </div>
+    </div>
+  </section>
+  <script>
+    const fetch_btn = document.getElementById("fetch_data")
+    const input_field = document.getElementById("input_field")
+    const result=document.getElementsByClassName("result")
+    console.log(result)
+    let storedData = []
+    window.addEventListener('load', () => {
+      fetch('https://newsapi.org/v2/top-headlines?country=in&apiKey=2d945e3bd25341139dd7a3af9cd18340')
+        .then((res) => res.json())
+        .then((data) => storedData=data)
+    })
+
+    fetch_btn.addEventListener("click", () => {
+      for(let i=0;i<result.length;i++){
+        result[i].innerHTML=""
+      }
+      const rand_index = Math.floor((Math.random() * storedData.articles.length))
+      let news = storedData.articles[rand_index]?.title
+      if (news !== undefined) {
+        input_field.innerHTML = news
+      }
+    });
+
+  </script>
+</body>
+
 </html>

@@ -26,8 +26,8 @@ def connect():
 
 
 def getTweets(api, query):
-    tweet_amount=10
-    query_res= tweepy.Cursor(api.search_tweets, q=query, lang='en').items(tweet_amount)
+    tweet_amount=20
+    query_res= tweepy.Cursor(api.search_tweets, q=query, lang='en', tweet_mode='extended').items(tweet_amount)
     return query_res
 
 def preprocessTweet(tweet):

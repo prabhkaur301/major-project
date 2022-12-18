@@ -11,7 +11,8 @@ def fetch_tweets(input):
     # Fetches the tweets using the api
         fetched_data = getTweets(api, input)
         for tweet in fetched_data:
-            txt = tweet.text
+            print(tweet.full_text)
+            txt = tweet.full_text
             clean_txt = preprocessTweet(txt) # Cleans the tweet
             stem_txt = TextBlob(stem(clean_txt)) # Stems the tweet
             sent = sentiment(stem_txt) # Gets the sentiment from the tweet

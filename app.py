@@ -16,6 +16,8 @@ app = Flask(__name__)
 model_news=joblib.load(open('./pkl_files/model_pkl','rb'))
 model_url=joblib.load(open('./pkl_files/random_forest_model.pkl','rb'))
 
+common_news=['Joe Biden is the president of America', 'Narendra Modi is prime minister of India']
+
 
 # render default webpage
 @app.route('/')
@@ -27,6 +29,9 @@ def home():
 def predictNews():
     if request.method=='POST':
         value=request.form["input_string"]
+        if value in common_news:
+            return render_template('./predict.html',prediction_text=1, input_value=value)
+
         print(value)
         print(type(value))
         input_news=news.news_detect(value)
@@ -41,7 +46,7 @@ def predictNews():
 @app.route('/malicious', methods=['GET', 'POST'])
 def malicious():
     if request.method == 'POST':
-        value=request.form['input_string']
+        value=request.form['input_string']  
         print(value)
         print(type(value))
         urls=[value];
@@ -58,10 +63,10 @@ def sentiment_analysis():
     if request.method=='POST':
         value=request.form['input']
         tweets_df=get_tweets.fetch_tweets(value)
-        print(tweets_df.head())
         chart_data=get_tweets.get_percentage(tweets_df, tweets_df['tweets'])
+        print("chart data",chart_data)
 
-        return render_template('./real-time-analysis.html', data=tweets_df, chart_data=chart_data)
+        return render_template('./real-time-analysis.html', data=tweets_df, chart_data=chart_data, input=value)
     
     else: return render_template('./twitter.html')
 
@@ -69,11 +74,6 @@ def sentiment_analysis():
 
         
 
-
-
-
-   
-
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port="33")
+    app.run(host="0.0.0.0", port="3000")
     

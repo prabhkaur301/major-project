@@ -1,61 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Montserrat:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Montserrat:wght@400;500;700&display=swap"
+        rel="stylesheet" />
     <title>Real Time Twitter Analysis</title>
     <style>
-        body{
+        body {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             background-color: rgb(255, 255, 255);
             font-family: "Montserrat", sans-serif;
-      }
-      h2{
-        font-family: "Kdam Thmor Pro", sans-serif;
-      }
+        }
+
+        h2 {
+            font-family: "Kdam Thmor Pro", sans-serif;
+        }
     </style>
 </head>
+
 <body>
     <div class="container flex flex-col items-center py-10 px-10 ">
-        <h2 class="text-2xl font-bold  tracking-wider my-4 text-blue-500"> Real Time Twitter Sentiment Analyser Result</h2>
-        <p class="text-center w-4/5">Twitter sentiment analysis allows you to keep track of what's being said about your product or service on social media, and can help you detect angry customers or negative mentions before they they escalate.</p>
+        <h2 class="text-2xl font-bold  tracking-wider my-4 text-blue-500"> Real Time Twitter Sentiment Analyser Result
+        </h2>
+        <h2 class="text-xl font-bold my-2 text-blue-700 tracking-wider">Showing results for "{{ input }}"</h2>
+        <canvas id="pieChart" class="w-50 h-50"></canvas>
 
-        <table class="rounded-md bg-blue-400 py-4 px-4 w-full h-fit border-2 border-black">
+        <table class="rounded-lg bg-blue-500 py-4 px-4 w-full h-fit border-2 border-black my-4">
             <tr class="border-2 border-black">
-                <th >Tweet</th>
-                <th >Sentiment</th>
+                <th>Tweet</th>
+                <th>Sentiment</th>
             </tr>
 
             {% for key, value in data.iterrows() %}
 
-            <tr class="border-2 border-black">
-                <td class="text-blue-700">{{ value['tweets'] }}</td>
-                <td class="text-blue-700">{{ value['sentiment'] }}</td>
+            <tr class="border-2 border-black py-2 px-4 ">
+                <td class="text-blue-700 text-white px-2">{{ value['tweets'] }}</td>
+                <td class="text-blue-700 text-white px-2">{{ value['sentiment'] }}</td>
 
             </tr>
-            {% endfor %} 
+            {% endfor %}
         </table>
 
-
-        </div>
-        
-        
-        
-        
+    </div>
     </div>
 
+    <script>
+        const ctx = document.getElementById('pieChart').getContext('2d');
+        const pieChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Positive', 'Negative', 'Neutral'],
+                datasets: [{
+                    label: '% of Sentiment of Tweets',
+                    data: {{ chart_data | safe}},
+                    backgroundColor: [
+                        'rgb(30, 254, 62)',
+                        'rgb(255, 82, 29 )',
+                        'rgb(254, 253, 22)'
+            ],// Data on Y axis
+                    borderWidth: 1
+        }]
+    },
+            options:{
+                responsive:false
+            }
+        });
+    </script>
 
-    
-    
+
+
+
 
 </body>
+
 </html>

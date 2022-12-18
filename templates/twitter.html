@@ -56,25 +56,25 @@
           <p class="text-base">Twitter sentiment analysis allows you to keep track of what's being said about your product or service on social media, and can help you detect angry customers or negative mentions before they they escalate.</p>
           <div class="btn-group">
             <button class="bg-blue-700 text-white px-4 py-2 rounded-3xl my-4 mr-4 hover:bg-indigo-500 hover:border-white hover:border-2 active:bg-indigo-500 focus:outline-none focus:ring focus:ring-white">Real Time Analysis</button>
-            <button class="bg-transparent text-blue-700 border-2 border-blue-700 px-4 py-2 rounded-3xl my-4 hover:bg-indigo-500 hover:border-white hover:text-white hover:border-2 active:bg-indigo-500 focus:outline-none focus:ring focus:ring-white">Analysis on Input</button>
           </div>
       </div>
       <img src="../static/twitter.svg" alt="Twitter Sentiment Analysis" class="w-1/4">
 
   </header>
   <div class="flex flex-col items-center my-8 mx-10">
-    <form action="" method="post" 
+    <form action="" method="post"  autocomplete="off"
             class="w-4/5 h-fit bg-gradient-to-r from-blue-500 to-purple-700 my-10 flex flex-col items-center rounded-md px-10 py-4">
                 <input type="text"  name="input" class="bg-white rounded-sm w-full py-2 px-4 hover:outline-none 
                 hover:border-2 hover:border-blue-400
                 focus:outline-none focus:border-2 border-blue-700"
                 placeholder="Enter hashtags or username">
                 <button type='submit' class="bg-white my-4 font-bold rounded-lg text-blue-500 border-2 border-blue-500 py-2
-                px-4 hover:border-2 hover:border-blue-400">
+                px-4 hover:border-2 hover:border-blue-400" onclick="loading()">
                     Perform Analysis
                 </button>
             </form>
   </div>
+
 
     
 </body>
